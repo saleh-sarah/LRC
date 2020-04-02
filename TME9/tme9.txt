@@ -1,0 +1,73 @@
+Exercice 1
+
+2. 
+6K borné
+Vivant car qqsoit les transitions elles sont franchissables. C'est à dire qu'une peut être franchie au moins une fois quelque soit l'évolution du marquage.
+Réversible car tu peux retourner à l'état initial
+
+3.
+
+Exercice 2
+
+3.
+des(0,9,4)
+(0,"S.`p1` S.`p3`",0)
+(0,"E.`t4`",1)
+(1,"S.`p1` S.`p2`",1)
+(1,"E.`t0`",2)
+(1,"E.`t3`",0)
+(2,"S.`p0`",2)
+(2,"E.`t1`",3)
+(2,"E.`t2`",0)
+(3,"S.`p1`",3)
+
+4.
+1-borné / pas vivant / pas réversiblé
+
+5.
+Toutes les transitions apparaissent dans le paragraphe SCC GRAPH.
+
+Exercice 3
+
+
+2.
+- (2,0,0,0)
+- (1,0,0,0)
+- (0,0,0,1)
+- (0,1,0,0)
+
+3.
+- (3,0,0,0)
+- (3,0,0,0)
+- impossible
+- (0,1,1,0)
+
+Exercice 4
+
+1. 
+Il y a 17 scénarios possible (5*3+2) 
+5 possibilitées entre la fabrication des roues et l'assemblage des roues.
+3 possibilitées entre la carosserie à faire et la carrosserie qui est finie d'être assemblée.
+C'est possible de le déduire avec le graphe des marquages car on observe 17 états dont le marquage initial et le marquage final avec 15 états entre.
+
+
+
+Exercice 5
+
+L'utilisateur va inserer une piece
+Cas 1 Piece de 50 centimes insérée : 
+Le compte est bon, pas de rendu.
+
+Cas 2 Piece de 1e insérée (avec stock 50ct): 
+Si il insert une piece de 1e alors on va recuperer la piece de 50centimes dans le stock et la rendre.
+Cas 3 Piece de 1e insérée (sans stock 50ct): 
+Si il insert une piece de 1e alors on va recharger le stock de 50centimes (possible avec l'arc inhibiteur seulement si le stock est vide), on pourra alors rendre une piece de 50centimes
+
+Cas 4 Piece de 2e insérée (avec stock 50ct, avec stock de 1e): 
+On va rendre une piece de 1e présente dans le stock et on va aller rendre une piece de 50en plus, présente dans le stock.
+Cas 6 Piece de 2e insérée (sans stock 50ct, avec stock de 1e):
+Similaure au cas précédent, seulement on devra recharger le stock de piece de 50ct avant de rendre cette piece à l'utilisateur.
+Cas 5 Piece de 2e insérée (avec stock 50ct, sans stock de 1e): 
+Comme le stock est vide on ne peut pas passer dans la transition "rendu1e", on va donc aller dans "rendu50c2" qui va produire 3 pieces en sortie. "rendu50c" va donc consommer en meme temps des pieces du stock et les 3 pieces produites précédemment. Il faudra donc recharger le stock au bout d'une pièce de 50ct rendue sur les 3 en tout.
+Cas 6 Piece de 2e insérée (sans stock 50ct, sans stock de 1e): 
+Similaire aux cas précedent, juste on devra recharger les pieces de 50ct avant meme la première piece rendue.
